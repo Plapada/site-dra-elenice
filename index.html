@@ -140,36 +140,45 @@
 <body class="antialiased is-loading">
 
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 rounded-b-2xl">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center max-w-7xl">
-            <a href="#" class="flex items-center gap-3">
-                <img id="header-logo" src="logoBRANCA2.png" alt="Logo Dra. Elenice Ramos" class="h-10 sm:h-12 w-auto" width="50" height="50">
-                <div>
-                    <span id="header-title" class="text-xl sm:text-2xl font-bold text-white block transition-colors duration-300">Dra. Elenice Ramos</span>
-                    <span id="header-subtitle" class="text-xs sm:text-sm tracking-widest text-white -mt-1 block transition-colors duration-300">• GINECOLOGISTA •</span>
-                </div>
-            </a>
-            <nav class="hidden md:flex items-center space-x-8">
+        <div class="container mx-auto px-6 py-3 grid grid-cols-2 md:grid-cols-3 items-center max-w-7xl">
+            <!-- Coluna Esquerda: Logo -->
+            <div class="justify-self-start">
+                <a href="#" class="flex items-center gap-3">
+                    <img id="header-logo" src="logoBRANCA2.png" alt="Logo Dra. Elenice Ramos" class="h-10 sm:h-12 w-auto" width="50" height="50">
+                    <div>
+                        <span id="header-title" class="text-xl sm:text-2xl font-bold text-white block transition-colors duration-300">Dra. Elenice Ramos</span>
+                        <span id="header-subtitle" class="text-xs sm:text-sm tracking-widest text-white -mt-1 block transition-colors duration-300">• GINECOLOGISTA •</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Coluna Central: Navegação -->
+            <nav class="hidden md:flex justify-self-center items-center space-x-8">
                 <a href="#sobre" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Sobre</a>
                 <a href="#servicos" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Tratamentos</a>
                 <a href="#avaliacoes" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Avaliações</a>
                 <a href="#faq" class="header-link text-white hover:text-brand-gold transition-colors duration-300">FAQ</a>
                 <a href="#contato" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Contato</a>
             </nav>
-            <div class="hidden lg:flex items-center gap-4">
-                <a href="https://www.instagram.com/dra.lenaramos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.002 2.024.603 3.965 1.762 5.625l-1.07 3.912 3.912-1.062z"></path></svg>
-                </a>
-                 <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
-                   class="bg-brand-gold text-white font-bold py-2 px-6 rounded-full text-sm transition-transform duration-300 hover:scale-105 cta-pulse" style="animation-duration: 3s;">
-                     Agendar Consulta
-                 </a>
+
+            <!-- Coluna Direita: Ícones e Botão Mobile -->
+            <div class="justify-self-end flex items-center">
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://www.instagram.com/dra.lenaramos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.002 2.024.603 3.965 1.762 5.625l-1.07 3.912 3.912-1.062z"></path></svg>
+                    </a>
+                     <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
+                       class="bg-brand-gold text-white font-bold py-2 px-6 rounded-full text-sm transition-transform duration-300 hover:scale-105 cta-pulse" style="animation-duration: 3s;">
+                         Agendar Consulta
+                     </a>
+                </div>
+                 <button id="mobile-menu-button" class="md:hidden text-white transition-colors duration-300">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path></svg>
+                 </button>
             </div>
-             <button id="mobile-menu-button" class="lg:hidden text-white transition-colors duration-300">
-                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path></svg>
-             </button>
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-sm">
@@ -186,16 +195,17 @@
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <!-- SEÇÃO DE ABERTURA (HERO) -->
-            <section id="hero" class="hero-section relative h-screen bg-cover bg-center bg-no-repeat z-30" style="background-image: url('imagemfundo.webp');">
+            <section id="hero" class="relative h-screen bg-cover bg-center bg-no-repeat z-30 overflow-hidden" style="background-image: url('imagemfundo.webp');">
                 <div class="absolute inset-0 bg-black/30"></div>
                 
-                <!-- Container para o layout principal -->
-                <div class="relative w-full h-full flex flex-col lg:flex-row">
+                <!-- Container Flexível para Layout Responsivo -->
+                <div class="relative h-full flex flex-col lg:flex-row">
                     
-                    <!-- Coluna de Texto (Ocupa a largura total no mobile, metade no desktop) -->
-                    <div class="w-full lg:w-1/2 order-2 lg:order-1 flex items-end lg:items-center z-10">
-                        <div class="container mx-auto px-6 pb-24 lg:pb-0 text-center lg:text-left">
-                            <h1 class="text-4xl sm:text-5xl md:text-5xl lg:text-7xl font-semibold leading-tight text-white" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+                    <!-- Coluna de Texto -->
+                    <div class="relative w-full lg:w-5/12 order-2 lg:order-1 h-[45%] lg:h-full flex items-center justify-center lg:justify-start z-10">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent lg:hidden"></div>
+                        <div class="relative container mx-auto px-6 text-center lg:text-left">
+                            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-semibold leading-tight text-white" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                                 <span class="text-brand-gold">Médica ginecologista em Salvador</span>
                                 <span class="block text-xl sm:text-2xl md:text-3xl font-normal tracking-wide mt-2">CRM 8694</span>
                             </h1>
@@ -212,9 +222,10 @@
                         </div>
                     </div>
 
-                    <!-- Coluna da Imagem (Ocupa a largura total no mobile, metade no desktop) -->
-                    <div class="w-full lg:w-1/2 order-1 lg:order-2 h-3/5 lg:h-full relative">
-                        <img src="imagemdra.webp" alt="Dra. Elenice Ramos" class="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-right-bottom">
+                    <!-- Coluna da Imagem -->
+                    <div class="relative w-full lg:w-7/12 order-1 lg:order-2 h-[55%] lg:h-full">
+                        <img src="imagemdra.webp" alt="Dra. Elenice Ramos" 
+                             class="absolute bottom-0 right-1/2 lg:right-0 translate-x-1/2 lg:translate-x-0 h-full w-auto max-w-none object-contain object-bottom lg:object-right-bottom">
                     </div>
                 </div>
             </section>
@@ -253,7 +264,7 @@
                     <!-- Cuidado Integrativo -->
                     <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                         <div data-anim="slide-in-left" class="overflow-hidden rounded-2xl">
-                            <img src="imgqualidadedevida - elenice.png" alt="Cuidado Integrativo" class="rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 hover:scale-105" loading="lazy" width="1000" height="1200">
+                            <img src="imgqualidade de vida - elenice.png" alt="Cuidado Integrativo" class="rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 hover:scale-105" loading="lazy" width="1000" height="1200">
                         </div>
                         <div class="text-center md:text-left" data-anim="slide-in-right">
                             <h3 class="text-3xl md:text-4xl font-bold text-brand-dark-brown">Qualidade de vida em primeiro lugar.</h3>
@@ -267,7 +278,7 @@
                             <p class="mt-4 text-base md:text-lg leading-relaxed">Ofereço um acompanhamento especializado para terapia de reposição hormonal (endometriose, SOP, climatério) e suporte completo e integrado para quem deseja emagrecer, melhorando sua autoestima e qualidade de vida.</p>
                         </div>
                          <div data-anim="slide-in-right" class="overflow-hidden rounded-2xl">
-                            <img src="imgsaúdehormonal - elenice.png" alt="Saúde Hormonal" class="rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 hover:scale-105" loading="lazy" width="1000" height="1200">
+                            <img src="imgsaúde hormonal - elenice.png" alt="Saúde Hormonal" class="rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 hover:scale-105" loading="lazy" width="1000" height="1200">
                         </div>
                     </div>
                     <!-- Principais Tratamentos -->
