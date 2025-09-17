@@ -65,11 +65,6 @@
             }
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 10;
-        }
-        
         /* Estilo para o botão de localização ativo */
         .location-btn.active {
             background-color: rgba(255, 255, 255, 0.15);
@@ -134,20 +129,6 @@
             width: 100%;
             overflow-x: clip;
         }
-
-        /* Ajuste fino da imagem de fundo no mobile */
-        @media (max-width: 767px) {
-            .hero-section {
-                background-position: center 20%;
-            }
-        }
-
-        /* Ajuste para tablets e desktops para manter a doutora visível */
-        @media (min-width: 768px) {
-            .hero-section {
-                background-position: right center;
-            }
-        }
         
         /* Otimização de performance para animações */
         [data-anim] {
@@ -161,7 +142,7 @@
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 rounded-b-2xl">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center max-w-7xl">
             <a href="#" class="flex items-center gap-3">
-                <img src="logo.png" alt="Logo Dra. Elenice Ramos" class="h-10 sm:h-12 w-auto" width="50" height="50">
+                <img id="header-logo" src="logoBRANCA2.png" alt="Logo Dra. Elenice Ramos" class="h-10 sm:h-12 w-auto" width="50" height="50">
                 <div>
                     <span id="header-title" class="text-xl sm:text-2xl font-bold text-white block transition-colors duration-300">Dra. Elenice Ramos</span>
                     <span id="header-subtitle" class="text-xs sm:text-sm tracking-widest text-white -mt-1 block transition-colors duration-300">• GINECOLOGISTA •</span>
@@ -175,13 +156,13 @@
                 <a href="#contato" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Contato</a>
             </nav>
             <div class="hidden lg:flex items-center gap-4">
-                <a href="https://www.instagram.com/dra.lenaramos" target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
+                <a href="https://www.instagram.com/dra.lenaramos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </a>
-                <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
+                <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.002 2.024.603 3.965 1.762 5.625l-1.07 3.912 3.912-1.062z"></path></svg>
                 </a>
-                 <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
+                 <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
                    class="bg-brand-gold text-white font-bold py-2 px-6 rounded-full text-sm transition-transform duration-300 hover:scale-105 cta-pulse" style="animation-duration: 3s;">
                      Agendar Consulta
                  </a>
@@ -197,7 +178,7 @@
             <a href="#avaliacoes" class="block text-center py-3 text-brand-dark-brown hover:text-brand-gold hover:bg-gray-100 transition">Avaliações</a>
             <a href="#faq" class="block text-center py-3 text-brand-dark-brown hover:text-brand-gold hover:bg-gray-100 transition">FAQ</a>
             <a href="#contato" class="block text-center py-3 text-brand-dark-brown hover:text-brand-gold hover:bg-gray-100 transition">Contato</a>
-             <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="block text-center py-4 text-brand-dark-brown bg-gray-100 hover:text-brand-gold transition">Agende sua consulta</a>
+             <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="block text-center py-4 text-brand-dark-brown bg-gray-100 hover:text-brand-gold transition">Agende sua consulta</a>
         </div>
     </header>
 
@@ -205,31 +186,37 @@
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <!-- SEÇÃO DE ABERTURA (HERO) -->
-            <section id="hero" class="hero-section relative h-screen flex items-end md:items-center bg-cover bg-no-repeat z-30 overflow-hidden" style="background-image: url('novafotoprincipal.webp');">
-                <!-- Overlay para melhor contraste do texto -->
-                <div class="absolute inset-0 bg-black/30 md:bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
-                <!-- Gradiente para destacar texto no mobile -->
-                <div class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-to-t from-black/90 to-transparent z-10 md:hidden"></div>
+            <section id="hero" class="hero-section relative h-screen bg-cover bg-center bg-no-repeat z-30 overflow-hidden" style="background-image: url('imagemfundo.webp');">
+                <div class="absolute inset-0 bg-black/30"></div>
                 
-                <!-- Container principal -->
-                <div class="hero-content container mx-auto px-6 w-full flex items-center justify-center md:justify-start pb-20 md:pb-0">
-                    <!-- Coluna de Texto -->
-                    <div class="relative z-20 w-full max-w-xl text-center md:w-1/2 lg:w-5/12 md:text-left">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
-                            <span class="text-brand-gold">Médica ginecologista em Salvador</span>
-                            <span class="block text-xl sm:text-2xl md:text-3xl font-normal tracking-wide text-white mt-2">CRM 8694</span>
-                        </h1>
-                        <p class="mt-6 text-base sm:text-lg md:text-xl max-w-xl mx-auto md:mx-0 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">
-                            Ginecologia moderna e humanizada, focada no seu bem-estar, saúde e autoestima • Cuidando de você em todas as fases da sua vida.
-                        </p>
-                        <div class="mt-10">
-                            <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
-                               class="cta-pulse bg-brand-gold text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full inline-flex items-center space-x-3 text-lg transition-transform duration-300 hover:scale-105">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.002 2.024.603 3.965 1.762 5.625l-1.07 3.912 3.912-1.062z"></path></svg>
-                                <span>Agende sua consulta</span>
-                            </a>
+                <!-- Container para o layout principal (texto e imagem da doutora) -->
+                <div class="relative container mx-auto h-full flex flex-col md:flex-row items-center justify-center">
+                    
+                    <!-- Coluna de Texto (Esquerda no desktop) -->
+                    <div class="w-full md:w-1/2 lg:w-5/12 h-full flex flex-col justify-end md:justify-center text-center md:text-left p-6 pt-24">
+                        <div class="md:max-w-md">
+                            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+                                <span class="text-brand-gold">Médica ginecologista em Salvador</span>
+                                <span class="block text-xl sm:text-2xl md:text-3xl font-normal tracking-wide text-white mt-2">CRM 8694</span>
+                            </h1>
+                            <p class="mt-6 text-base sm:text-lg md:text-xl max-w-xl mx-auto md:mx-0 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">
+                                Ginecologia moderna e humanizada, focada no seu bem-estar, saúde e autoestima • Cuidando de você em todas as fases da sua vida.
+                            </p>
+                            <div class="mt-10">
+                                <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
+                                   class="cta-pulse bg-brand-gold text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full inline-flex items-center space-x-3 text-lg transition-transform duration-300 hover:scale-105">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.002 2.024.603 3.965 1.762 5.625l-1.07 3.912 3.912-1.062z"></path></svg>
+                                    <span>Agende sua consulta</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Coluna da Imagem (Direita no desktop) -->
+                    <div class="absolute bottom-0 right-0 w-full md:w-1/2 lg:w-7/12 h-full">
+                        <img src="imagemdra.webp" alt="Dra. Elenice Ramos" class="absolute bottom-0 right-0 h-full w-auto max-w-none md:max-w-full object-contain object-right-bottom">
+                    </div>
+
                 </div>
             </section>
 
@@ -253,7 +240,7 @@
                             <p class="mt-4 text-base leading-relaxed">
                                 Minha missão é ser sua parceira de confiança em todas as etapas, desde a adolescência até a maturidade, utilizando as mais modernas tecnologias com um atendimento que respeita sua individualidade.
                             </p>
-                            <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20iniciar%20minha%20jornada%20de%20cuidado." target="_blank" class="mt-8 inline-block border-2 border-brand-gold text-brand-gold font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:bg-brand-gold/10">
+                            <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20iniciar%20minha%20jornada%20de%20cuidado." target="_blank" class="mt-8 inline-block border-2 border-brand-gold text-brand-gold font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:bg-brand-gold/10">
                                 Quero iniciar minha jornada de cuidado
                             </a>
                         </div>
@@ -404,7 +391,7 @@
             <!-- FOOTER E CONTATO -->
             <footer id="contato" class="bg-brand-dark-brown text-brand-off-white py-20">
                 <div class="container mx-auto px-6 text-center">
-                    <img src="logo.png" alt="Logo Dra. Elenice Ramos" class="h-16 w-auto mx-auto mb-8" loading="lazy">
+                    <img src="logoBRANCA2.png" alt="Logo Dra. Elenice Ramos" class="h-16 w-auto mx-auto mb-8" loading="lazy">
                     <h2 class="text-3xl md:text-5xl font-bold text-brand-gold mb-12" data-anim="fade-in">Onde me encontrar</h2>
                     
                     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto mb-16" data-anim="fade-in">
@@ -432,13 +419,13 @@
                     </div>
                     
                     <div class="mb-12 text-lg space-y-3" data-anim="fade-in">
-                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="hover:text-brand-gold">(71) 99999-8888</a></p>
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="hover:text-brand-gold">(71) 99104-2582</a></p>
                         <p><strong>Email:</strong> <a href="mailto:contato@draeleniceramos.com.br" class="hover:text-brand-gold">contato@draeleniceramos.com.br</a></p>
-                        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/dra.lenaramos" target="_blank" class="hover:text-brand-gold">@dra.eleniceramos</a></p>
+                        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/dra.lenaramos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-brand-gold">@dra.lenaramos</a></p>
                     </div>
 
                     <div data-anim="fade-in">
-                        <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20falar%20com%20sua%20equipe." target="_blank"
+                        <a href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20falar%20com%20sua%20equipe." target="_blank"
                            class="cta-pulse bg-brand-gold text-white font-bold py-4 px-8 sm:px-12 rounded-full inline-block text-base sm:text-xl transition-transform duration-300 hover:scale-105">
                             Fale com minha equipe e agende
                         </a>
@@ -453,7 +440,7 @@
     </div>
     
     <!-- Botão Flutuante do WhatsApp -->
-    <a id="whatsapp-fab" href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="fixed bottom-6 right-6 z-50 bg-brand-gold text-white rounded-full p-4 shadow-lg transition-all duration-500 transform scale-0 opacity-0" style="animation-duration: 4s;">
+    <a id="whatsapp-fab" href="https://wa.me/5571991042582?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="fixed bottom-6 right-6 z-50 bg-brand-gold text-white rounded-full p-4 shadow-lg transition-all duration-500 transform scale-0 opacity-0" style="animation-duration: 4s;">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
           <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
         </svg>
@@ -487,6 +474,7 @@
             const headerLinks = document.querySelectorAll('.header-link');
             const headerIcons = document.querySelectorAll('.header-icon');
             const mobileMenuButton = document.querySelector('#mobile-menu-button');
+            const headerLogo = document.querySelector('#header-logo');
             const elementsToDarken = [...headerLinks, ...headerIcons, mobileMenuButton];
             
             let lastScrollY = window.scrollY;
@@ -498,11 +486,13 @@
                     header.classList.add('bg-white/80', 'backdrop-blur-sm', 'shadow-md');
                     headerTitle.classList.replace('text-white', 'text-brand-gold');
                     headerSubtitle.classList.replace('text-white', 'text-brand-gold');
+                    headerLogo.src = 'logoDOURADA.png';
                     elementsToDarken.forEach(el => el.classList.replace('text-white', 'text-brand-dark-brown'));
                 } else {
                     header.classList.remove('bg-white/80', 'backdrop-blur-sm', 'shadow-md');
                     headerTitle.classList.replace('text-brand-gold', 'text-white');
                     headerSubtitle.classList.replace('text-brand-gold', 'text-white');
+                    headerLogo.src = 'logoBRANCA2.png';
                     elementsToDarken.forEach(el => el.classList.replace('text-brand-dark-brown', 'text-white'));
                 }
 
@@ -537,7 +527,6 @@
             // --- WHATSAPP FAB HIDE/SHOW ---
             const whatsappFab = document.querySelector('#whatsapp-fab');
             if (whatsappFab) {
-                // Adicionamos a classe cta-pulse via JS para garantir que a animação não comece antes de ser visível
                 whatsappFab.classList.add('cta-pulse');
                 
                 gsap.to(whatsappFab, {
