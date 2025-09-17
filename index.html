@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Elenice Ramos - Ginecologia Humanizada e Moderna</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Configurações de tipografia e cores personalizadas */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F8F7F4; /* Off-White */
+            color: #6d554a; /* Tom de marrom para textos */
+            overflow-x: hidden; /* Prevenir scroll horizontal */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Adicionado espaçamento entre letras para melhor legibilidade */
+        h2 {
+            letter-spacing: 0.025em;
+        }
+
+        /* Paleta de Cores - Dourado mais vivo */
+        .text-brand-gold { color: #D4AF37; }
+        .bg-brand-gold { background-color: #D4AF37; }
+        .border-brand-gold { border-color: #D4AF37; }
+        .bg-brand-dark-brown { background-color: #6d554a; }
+        .text-brand-off-white { color: #F8F7F4; }
+        .hover\:bg-brand-gold\/10:hover { background-color: rgba(212, 175, 55, 0.1); }
+
+        /* Animação de Pulso para os botões */
+        .cta-pulse {
+            animation: pulse 2.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Estilo para o botão de localização ativo */
+        .location-btn.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-left: 3px solid #D4AF37;
+        }
+        .location-btn.active h4 {
+            color: #D4AF37;
+        }
+
+        /* Animação de Fade-in no carregamento */
+        body.is-loading {
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+        
+        .faq-item {
+          border-bottom: 1px solid #e5e7eb;
+        }
+        .faq-item:last-child {
+          border-bottom: none;
+        }
+        .faq-question {
+          cursor: pointer;
+        }
+        .faq-answer {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        .faq-item.active .faq-answer {
+          max-height: 500px; /* Adjust as needed */
+          padding-top: 1rem;
+          padding-bottom: 1.5rem;
+        }
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Animação de hover para os links do cabeçalho */
+        .header-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .header-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #D4AF37;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .header-link:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* Fix para largura total da tela */
+        #smooth-wrapper, #smooth-content {
+            width: 100%;
+            overflow-x: clip;
+        }
+
+        /* Ajuste fino da imagem de fundo no mobile */
+        @media (max-width: 767px) {
+            .hero-section {
+                background-position: center 20%;
+            }
+        }
+
+        /* Ajuste para tablets e desktops para manter a doutora visível */
+        @media (min-width: 768px) {
+            .hero-section {
+                background-position: right center;
+            }
+        }
+        
+        /* Otimização de performance para animações */
+        [data-anim] {
+            will-change: transform, opacity;
+        }
+
+    </style>
+</head>
+<body class="antialiased is-loading">
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 rounded-b-2xl">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center max-w-7xl">
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.png" alt="Logo Dra. Elenice Ramos" class="h-10 sm:h-12 w-auto" width="50" height="50">
+                <div>
+                    <span id="header-title" class="text-xl sm:text-2xl font-bold text-white block transition-colors duration-300">Dra. Elenice Ramos</span>
+                    <span id="header-subtitle" class="text-xs sm:text-sm tracking-widest text-white -mt-1 block transition-colors duration-300">• GINECOLOGISTA •</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#sobre" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Sobre</a>
+                <a href="#servicos" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Tratamentos</a>
+                <a href="#avaliacoes" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Avaliações</a>
+                <a href="#faq" class="header-link text-white hover:text-brand-gold transition-colors duration-300">FAQ</a>
+                <a href="#contato" class="header-link text-white hover:text-brand-gold transition-colors duration-300">Contato</a>
+            </nav>
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="https://www.instagram.com/dra.lenaramos" target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="header-icon text-white hover:text-brand-gold transition-colors duration-300">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.002 2.024.603 3.965 1.762 5.625l-1.07 3.912 3.912-1.062z"></path></svg>
+                </a>
+                 <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
+                   class="bg-brand-gold text-white font-bold py-2 px-6 rounded-full text-sm transition-transform duration-300 hover:scale-105 cta-pulse" style="animation-duration: 3s;">
+                     Agendar Consulta
+                 </a>
+            </div>
+             <button id="mobile-menu-button" class="lg:hidden text-white transition-colors duration-300">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path></svg>
+             </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-sm">
+            <a href="#sobre" class="block text-center py-3 text-brand-dark-brown hover:text-brand-gold hover:bg-gray-100 transition">Sobre</a>
+            <a href="#servicos" class="block text-center py-3 text-brand-dark-brown hover:text-brand-gold hover:bg-gray-100 transition">Tratamentos</a>
+            <a href="#avaliacoes" class="block text-center py-3 text-brand-dark-brown hover:text-brand-gold hover:bg-gray-100 transition">Avaliações</a>
+            <a href="#faq" class="block text-center py-3 text-brand-dark-brown hover:text-brand-gold hover:bg-gray-100 transition">FAQ</a>
+            <a href="#contato" class="block text-center py-3 text-brand-dark-brown hover:text-brand-gold hover:bg-gray-100 transition">Contato</a>
+             <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="block text-center py-4 text-brand-dark-brown bg-gray-100 hover:text-brand-gold transition">Agende sua consulta</a>
+        </div>
+    </header>
+
+    <!-- O wrapper é necessário para o Lenis (rolagem suave) funcionar corretamente -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- SEÇÃO DE ABERTURA (HERO) -->
+            <section id="hero" class="hero-section relative h-screen flex items-end md:items-center bg-cover bg-no-repeat z-30 overflow-hidden" style="background-image: url('novafotoprincipal.webp');">
+                <!-- Overlay para melhor contraste do texto (ajustado para mais brilho) -->
+                <div class="absolute inset-0 bg-black/10 md:bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
+                <!-- Gradiente para destacar texto no mobile -->
+                <div class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-to-t from-black/90 to-transparent z-10 md:hidden"></div>
+                
+                <!-- Container principal -->
+                <div class="hero-content container mx-auto px-6 w-full flex items-center justify-center md:justify-start pb-20 md:pb-0">
+                    <!-- Coluna de Texto -->
+                    <div class="relative z-20 w-full max-w-xl text-center md:w-1/2 lg:w-5/12 md:text-left">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+                            <span class="text-brand-gold">Médica ginecologista em Salvador</span>
+                            <span class="block text-xl sm:text-2xl md:text-3xl font-normal tracking-wide text-white mt-2">CRM 8694</span>
+                        </h1>
+                        <p class="mt-6 text-base sm:text-lg md:text-xl max-w-xl mx-auto md:mx-0 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">
+                            Ginecologia moderna e humanizada, focada no seu bem-estar, saúde e autoestima • Cuidando de você em todas as fases da sua vida.
+                        </p>
+                        <div class="mt-10">
+                            <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
+                               class="cta-pulse bg-brand-gold text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full inline-flex items-center space-x-3 text-lg transition-transform duration-300 hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.002 2.024.603 3.965 1.762 5.625l-1.07 3.912 3.912-1.062z"></path></svg>
+                                <span>Agende sua consulta</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO SOBRE A DOUTORA -->
+            <section id="sobre" class="py-20 md:py-32 bg-white relative z-20">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        <div data-anim="slide-in-left">
+                            <img src="foto_2.jpg" alt="Dra. Elenice Ramos em seu consultório" class="rounded-lg shadow-2xl w-full h-auto object-cover transition-transform duration-500 hover:scale-105" width="800" height="600">
+                        </div>
+                        <div data-anim="slide-in-right">
+                            <h2 class="text-3xl md:text-5xl font-bold text-brand-gold">Prazer, sou a Dra. Elenice Ramos</h2>
+                             <div class="mt-4 mb-6 text-brand-dark-brown/90 text-base">
+                                  <p class="font-semibold">Ginecologista | Patologia Cervical</p>
+                                  <p>Mestrado em Patologia Humana</p>
+                                  <p>Professora Assistente na Escola Bahiana de Medicina e Saúde Publica</p>
+                             </div>
+                            <p class="mt-6 text-base leading-relaxed">
+                                Dedico minha carreira a oferecer uma ginecologia que vai além do tratamento, focando na prevenção, no cuidado integral e na escuta atenta a cada paciente. Acredito que a saúde da mulher é a base para uma vida plena e feliz.
+                            </p>
+                            <p class="mt-4 text-base leading-relaxed">
+                                Minha missão é ser sua parceira de confiança em todas as etapas, desde a adolescência até a maturidade, utilizando as mais modernas tecnologias com um atendimento que respeita sua individualidade.
+                            </p>
+                            <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20iniciar%20minha%20jornada%20de%20cuidado." target="_blank" class="mt-8 inline-block border-2 border-brand-gold text-brand-gold font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:bg-brand-gold/10">
+                                Quero iniciar minha jornada de cuidado
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NOVAS SEÇÕES DE TRATAMENTOS -->
+            <section id="servicos" class="bg-gray-50 py-20 md:py-28 overflow-hidden">
+                <div class="container mx-auto px-6 space-y-20 md:space-y-28">
+                    <!-- Cuidado Integrativo -->
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                        <div data-anim="slide-in-left" class="overflow-hidden rounded-2xl">
+                            <img src="imgqualidadedevida - elenice.png" alt="Cuidado Integrativo" class="rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 hover:scale-105" loading="lazy" width="1000" height="1200">
+                        </div>
+                        <div class="text-center md:text-left" data-anim="slide-in-right">
+                            <h3 class="text-3xl md:text-4xl font-bold text-brand-dark-brown">Qualidade de vida em primeiro lugar.</h3>
+                            <p class="mt-4 text-base md:text-lg leading-relaxed">Meu compromisso é com o seu bem-estar completo. Ofereço um acompanhamento ginecológico anual detalhado, com uma visão que integra todos os aspectos da sua saúde. Juntas, vamos criar um plano de saúde personalizado para uma vida mais saudável e equilibrada.</p>
+                        </div>
+                    </div>
+                    <!-- Saúde Hormonal -->
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                        <div class="text-center md:text-left" data-anim="slide-in-left">
+                             <h3 class="text-3xl md:text-4xl font-bold text-brand-dark-brown">Conquiste seus objetivos de saúde.</h3>
+                            <p class="mt-4 text-base md:text-lg leading-relaxed">Ofereço um acompanhamento especializado para terapia de reposição hormonal (endometriose, SOP, climatério) e suporte completo e integrado para quem deseja emagrecer, melhorando sua autoestima e qualidade de vida.</p>
+                        </div>
+                         <div data-anim="slide-in-right" class="overflow-hidden rounded-2xl">
+                            <img src="imgsaudehormonal - elenice.png" alt="Saúde Hormonal" class="rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 hover:scale-105" loading="lazy" width="1000" height="1200">
+                        </div>
+                    </div>
+                    <!-- Principais Tratamentos -->
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                        <div data-anim="slide-in-left" class="overflow-hidden rounded-2xl">
+                            <img src="imgtratamentos - elenice.png" alt="Procedimentos" class="rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 hover:scale-105" loading="lazy" width="1000" height="1200">
+                        </div>
+                        <div class="text-center md:text-left" data-anim="slide-in-right">
+                            <h3 class="text-3xl md:text-4xl font-bold text-brand-dark-brown">Cuidado especializado para você.</h3>
+                             <ul class="mt-4 list-disc list-inside text-base md:text-lg leading-relaxed space-y-2 inline-block text-left">
+                                <li>Preventivo (Papanicolau)</li>
+                                <li>Tratamento de lesões por HPV</li>
+                                <li>Cirurgia Ginecológica</li>
+                                <li>Acompanhamento para Obesidade</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO DE AVALIAÇÕES -->
+            <section id="avaliacoes" class="py-20 md:py-32 bg-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-5xl font-bold text-brand-gold text-center mb-4" data-anim="fade-in">Avaliações de Pacientes</h2>
+                    <p class="max-w-2xl mx-auto text-center mb-16 text-lg" data-anim="fade-in">
+                        A confiança e o bem-estar de cada mulher que atendo é minha maior recompensa.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Avaliação 1 -->
+                        <div class="bg-gray-50/80 p-8 rounded-xl shadow-lg" data-anim="fade-in">
+                            <div class="text-brand-gold mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" opacity="0.2"><path d="M14.017 21v-7.391c0-2.908.942-5.065 2.825-6.424l-1.114-2.454c-1.135.938-1.947 2.471-2.42 4.608l-2.298.435v11.226h3zm-10 0v-7.391c0-2.908.942-5.065 2.825-6.424l-1.114-2.454c-1.135.938-1.947 2.471-2.42 4.608l-2.298.435v11.226h3z"/></svg>
+                            </div>
+                            <p class="text-brand-dark-brown/90 mb-6 italic">"Atendimento excepcional e humanizado. Me senti muito segura e acolhida durante todo o processo. Uma profissional que realmente se importa com suas pacientes."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-brand-gold text-white flex items-center justify-center font-bold text-lg mr-4">
+                                    AS
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark-brown">Ana S.</h4>
+                                    <p class="text-sm text-yellow-500">★★★★★</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Avaliação 2 -->
+                        <div class="bg-gray-50/80 p-8 rounded-xl shadow-lg" data-anim="fade-in">
+                             <div class="text-brand-gold mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" opacity="0.2"><path d="M14.017 21v-7.391c0-2.908.942-5.065 2.825-6.424l-1.114-2.454c-1.135.938-1.947 2.471-2.42 4.608l-2.298.435v11.226h3zm-10 0v-7.391c0-2.908.942-5.065 2.825-6.424l-1.114-2.454c-1.135.938-1.947 2.471-2.42 4.608l-2.298.435v11.226h3z"/></svg>
+                            </div>
+                            <p class="text-brand-dark-brown/90 mb-6 italic">"Uma médica extremamente competente e atenciosa. Explicou cada detalhe com paciência e clareza, o que fez toda a diferença no meu tratamento."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-brand-gold text-white flex items-center justify-center font-bold text-lg mr-4">
+                                    MP
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark-brown">Mariana P.</h4>
+                                    <p class="text-sm text-yellow-500">★★★★★</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Avaliação 3 -->
+                        <div class="bg-gray-50/80 p-8 rounded-xl shadow-lg" data-anim="fade-in">
+                             <div class="text-brand-gold mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" opacity="0.2"><path d="M14.017 21v-7.391c0-2.908.942-5.065 2.825-6.424l-1.114-2.454c-1.135.938-1.947 2.471-2.42 4.608l-2.298.435v11.226h3zm-10 0v-7.391c0-2.908.942-5.065 2.825-6.424l-1.114-2.454c-1.135.938-1.947 2.471-2.42 4.608l-2.298.435v11.226h3z"/></svg>
+                            </div>
+                            <p class="text-brand-dark-brown/90 mb-6 italic">"O ambiente do consultório é maravilhoso e a Dra. Elenice transmite uma calma e confiança que são raras de encontrar. Recomendo a todas as mulheres."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-brand-gold text-white flex items-center justify-center font-bold text-lg mr-4">
+                                    JG
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark-brown">Juliana G.</h4>
+                                    <p class="text-sm text-yellow-500">★★★★★</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SEÇÃO FAQ -->
+            <section id="faq" class="py-20 md:py-32 bg-gray-50">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2 class="text-3xl md:text-5xl font-bold text-brand-gold text-center mb-4" data-anim="fade-in">Perguntas Frequentes</h2>
+                    <p class="max-w-2xl mx-auto text-center mb-12 text-lg" data-anim="fade-in">
+                        Esclarecendo suas principais dúvidas para que você se sinta ainda mais segura e informada.
+                    </p>
+                    <div class="bg-white p-4 sm:p-8 rounded-2xl shadow-lg" data-anim="fade-in">
+                        <div class="faq-item">
+                            <div class="faq-question flex justify-between items-center py-4">
+                                <h4 class="text-base sm:text-lg font-semibold text-brand-dark-brown">A terapia de reposição hormonal pode causar câncer?</h4>
+                                <svg class="w-6 h-6 text-brand-gold transition-transform duration-300 faq-arrow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brand-dark-brown/80 text-sm sm:text-base">
+                                <p>Esta é uma preocupação muito comum. Quando indicada e acompanhada corretamente por um especialista, a terapia hormonal é segura e os riscos são muito baixos. Realizamos uma avaliação completa e individualizada para garantir que o tratamento seja o mais benéfico e seguro para você, utilizando hormônios bioidênticos e monitorando de perto sua saúde.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question flex justify-between items-center py-4">
+                                <h4 class="text-base sm:text-lg font-semibold text-brand-dark-brown">Ter HPV quer dizer que estou com câncer?</h4>
+                                <svg class="w-6 h-6 text-brand-gold transition-transform duration-300 faq-arrow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brand-dark-brown/80 text-sm sm:text-base">
+                                <p>Não. Ter o vírus HPV não é o mesmo que ter câncer. O HPV é um vírus muito comum, e na maioria das vezes o nosso próprio corpo consegue eliminá-lo. No entanto, alguns tipos de HPV são considerados de alto risco e, se a infecção persistir por muitos anos, podem causar lesões que, se não tratadas, podem evoluir para um câncer. Por isso, o exame preventivo (Papanicolau) é fundamental para detectar e tratar qualquer alteração precocemente.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question flex justify-between items-center py-4">
+                                <h4 class="text-base sm:text-lg font-semibold text-brand-dark-brown">O acompanhamento para perda de peso é muito caro?</h4>
+                                <svg class="w-6 h-6 text-brand-gold transition-transform duration-300 faq-arrow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brand-dark-brown/80 text-sm sm:text-base">
+                                <p>Investir na sua saúde é o melhor investimento que você pode fazer. Ofereço diferentes planos de acompanhamento para o emagrecimento, buscando opções que se adequem às suas necessidades. O mais importante é o cuidado integrado, que muitas vezes previne gastos futuros com problemas de saúde relacionados à obesidade. Vamos conversar para encontrar a melhor forma de iniciar sua jornada.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER E CONTATO -->
+            <footer id="contato" class="bg-brand-dark-brown text-brand-off-white py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <img src="logo.png" alt="Logo Dra. Elenice Ramos" class="h-16 w-auto mx-auto mb-8" loading="lazy">
+                    <h2 class="text-3xl md:text-5xl font-bold text-brand-gold mb-12" data-anim="fade-in">Onde me encontrar</h2>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto mb-16" data-anim="fade-in">
+                        <!-- Coluna de Endereços -->
+                        <div class="bg-black/20 p-6 rounded-xl h-full flex flex-col justify-center">
+                            <div class="text-left space-y-4">
+                                <div class="location-btn p-4 rounded-lg cursor-pointer transition-colors active" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.671078732959!2d-38.4861273859012!3d-12.99285099084187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7161b1df4f6b289%3A0x88e7a46f29505c87!2sR.%20Baependi%2C%20132%20-%20Ondina%2C%20Salvador%20-%20BA%2C%2040170-070!5e0!3m2!1spt-BR!2sbr!4v1725677943564!5m2!1spt-BR!2sbr">
+                                    <h4 class="font-bold text-lg text-white transition-colors">Unidade Ondina</h4>
+                                    <p class="text-sm sm:text-base text-brand-off-white/80">Rua Baependi, 132 - Ondina, Salvador - BA</p>
+                                </div>
+                                <div class="location-btn p-4 rounded-lg cursor-pointer transition-colors" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.892694774681!2d-38.45882658590135!3d-12.97869919085141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7161b17b66763a9%3A0x1d37803a3d5f3068!2sSalvador%20Trade%20Center!5e0!3m2!1spt-BR!2sbr!4v1725768000000!5m2!1spt-BR!2sbr">
+                                    <h4 class="font-bold text-lg text-white transition-colors">Unidade Caminho das Árvores</h4>
+                                    <p class="text-sm sm:text-base text-brand-off-white/80">Av. Tancredo Neves, 1632 - Salvador Trade Center, Torre Norte, Sala 108</p>
+                                </div>
+                                <div class="location-btn p-4 rounded-lg cursor-pointer transition-colors" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.197926938994!2d-38.46302188590159!3d-12.95932599086438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x716109a690e5123%3A0x3e77f24097f5e317!2sShopping%20Bela%20Vista!5e0!3m2!1spt-BR!2sbr!4v1725768000000!5m2!1spt-BR!2sbr">
+                                    <h4 class="font-bold text-lg text-white transition-colors">Unidade Shopping Bela Vista</h4>
+                                    <p class="text-sm sm:text-base text-brand-off-white/80">Alameda Euvaldo Luz, 92, Piso L2 - Horto Bela Vista</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Coluna do Mapa -->
+                        <div class="min-h-[300px]">
+                             <iframe id="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.671078732959!2d-38.4861273859012!3d-12.99285099084187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7161b1df4f6b289%3A0x88e7a46f29505c87!2sR.%20Baependi%2C%20132%20-%20Ondina%2C%20Salvador%20-%20BA%2C%2040170-070!5e0!3m2!1spt-BR!2sbr!4v1725677943564!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-lg"></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-12 text-lg space-y-3" data-anim="fade-in">
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="hover:text-brand-gold">(71) 99999-8888</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:contato@draeleniceramos.com.br" class="hover:text-brand-gold">contato@draeleniceramos.com.br</a></p>
+                        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/dra.lenaramos" target="_blank" class="hover:text-brand-gold">@dra.eleniceramos</a></p>
+                    </div>
+
+                    <div data-anim="fade-in">
+                        <a href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20falar%20com%20sua%20equipe." target="_blank"
+                           class="cta-pulse bg-brand-gold text-white font-bold py-4 px-8 sm:px-12 rounded-full inline-block text-base sm:text-xl transition-transform duration-300 hover:scale-105">
+                            Fale com minha equipe e agende
+                        </a>
+                    </div>
+
+                    <div class="mt-8 border-t border-brand-off-white/20 pt-8">
+                         <p class="text-sm text-brand-off-white/60">&copy; 2025 Dra. Elenice Ramos. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Botão Flutuante do WhatsApp -->
+    <a id="whatsapp-fab" href="https://wa.me/5571999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="fixed bottom-6 right-6 z-50 bg-brand-gold text-white rounded-full p-4 shadow-lg transition-all duration-500 transform scale-0 opacity-0" style="animation-duration: 4s;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
+        </svg>
+    </a>
+
+    <!-- GSAP & Lenis for Smooth Scroll + ScrollTrigger -->
+    <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- SMOOTH SCROLL (LENIS + GSAP) ---
+            const lenis = new Lenis({
+                lerp: 0.1,
+                smoothTouch: true,
+            });
+
+            lenis.on('scroll', ScrollTrigger.update);
+
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+
+            gsap.ticker.lagSmoothing(0);
+            
+            // --- HEADER TRANSPARENCY & HIDE/SHOW ON SCROLL ---
+            const header = document.querySelector('header');
+            const headerTitle = document.querySelector('#header-title');
+            const headerSubtitle = document.querySelector('#header-subtitle');
+            const headerLinks = document.querySelectorAll('.header-link');
+            const headerIcons = document.querySelectorAll('.header-icon');
+            const mobileMenuButton = document.querySelector('#mobile-menu-button');
+            const elementsToDarken = [...headerLinks, ...headerIcons, mobileMenuButton];
+            
+            let lastScrollY = window.scrollY;
+            
+            const handleHeaderScroll = () => {
+                const isScrolled = window.scrollY > 50;
+
+                if (isScrolled) {
+                    header.classList.add('bg-white/80', 'backdrop-blur-sm', 'shadow-md');
+                    headerTitle.classList.replace('text-white', 'text-brand-gold');
+                    headerSubtitle.classList.replace('text-white', 'text-brand-gold');
+                    elementsToDarken.forEach(el => el.classList.replace('text-white', 'text-brand-dark-brown'));
+                } else {
+                    header.classList.remove('bg-white/80', 'backdrop-blur-sm', 'shadow-md');
+                    headerTitle.classList.replace('text-brand-gold', 'text-white');
+                    headerSubtitle.classList.replace('text-brand-gold', 'text-white');
+                    elementsToDarken.forEach(el => el.classList.replace('text-brand-dark-brown', 'text-white'));
+                }
+
+                if (lastScrollY < window.scrollY && window.scrollY > 150) {
+                       header.style.transform = 'translateY(-100%)';
+                   } else {
+                       header.style.transform = 'translateY(0)';
+                   }
+                   lastScrollY = window.scrollY;
+            };
+
+            window.addEventListener('scroll', handleHeaderScroll);
+            handleHeaderScroll(); // Call on load
+
+            // --- MOBILE BACK BUTTON TO TOP ---
+            if (window.history.state == null) {
+                window.history.pushState({ page: "home" }, document.title, window.location.href);
+            }
+            window.onpopstate = function(event) {
+                if(event.state && event.state.page === "home") {
+                    window.history.pushState({ page: "home" }, document.title, window.location.href);
+                    lenis.scrollTo(0, { duration: 1.5, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+                }
+            };
+
+            // --- FADE-IN BODY ON LOAD ---
+            document.body.classList.remove('is-loading');
+
+            // --- SCROLL TRIGGER ANIMATIONS (GSAP) ---
+            gsap.registerPlugin(ScrollTrigger);
+
+            // --- WHATSAPP FAB HIDE/SHOW ---
+            const whatsappFab = document.querySelector('#whatsapp-fab');
+            if (whatsappFab) {
+                // Adicionamos a classe cta-pulse via JS para garantir que a animação não comece antes de ser visível
+                whatsappFab.classList.add('cta-pulse');
+                
+                gsap.to(whatsappFab, {
+                    opacity: 1,
+                    scale: 1,
+                    pointerEvents: 'auto',
+                    duration: 0.5,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '#hero',
+                        start: 'bottom center-=100px',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+            }
+            
+            // --- GENERIC CONTENT ANIMATIONS ---
+            const fadeInElements = gsap.utils.toArray('[data-anim="fade-in"]');
+            fadeInElements.forEach(el => {
+                gsap.fromTo(el, { opacity: 0, y: 30 }, {
+                    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' }
+                });
+            });
+
+            const slideInLeftElements = gsap.utils.toArray('[data-anim="slide-in-left"]');
+            slideInLeftElements.forEach(el => {
+                gsap.fromTo(el, { opacity: 0, x: -40 }, {
+                    opacity: 1, x: 0, duration: 1.2, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' }
+                });
+            });
+
+            const slideInRightElements = gsap.utils.toArray('[data-anim="slide-in-right"]');
+            slideInRightElements.forEach(el => {
+                gsap.fromTo(el, { opacity: 0, x: 40 }, {
+                    opacity: 1, x: 0, duration: 1.2, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' }
+                });
+            });
+
+            // --- FAQ ACCORDION ---
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // --- INTERAÇÃO DO MAPA ---
+            const locationButtons = document.querySelectorAll('.location-btn');
+            const mapFrame = document.getElementById('map-frame');
+            if (locationButtons.length > 0 && mapFrame) {
+                locationButtons[0].classList.add('active');
+                locationButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        locationButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        const mapSrc = button.dataset.mapSrc;
+                        if (mapSrc) {
+                            mapFrame.src = mapSrc;
+                        }
+                    });
+                });
+            }
+            
+            // --- MOBILE MENU ---
+            const mobileMenu = document.getElementById('mobile-menu');
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
