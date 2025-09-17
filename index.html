@@ -469,7 +469,8 @@
             // --- SMOOTH SCROLL (LENIS + GSAP) ---
             const lenis = new Lenis({
                 lerp: 0.1,
-                smoothTouch: true,
+                // A opção 'smoothTouch: true' foi removida para usar a rolagem nativa em
+                // dispositivos de toque (tablets/celulares), corrigindo o problema de atraso.
             });
 
             lenis.on('scroll', ScrollTrigger.update);
@@ -626,4 +627,5 @@
     </script>
 </body>
 </html>
+
 
