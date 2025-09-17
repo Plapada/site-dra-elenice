@@ -189,17 +189,17 @@
             <section id="hero" class="hero-section relative h-screen bg-cover bg-center bg-no-repeat z-30" style="background-image: url('imagemfundo.webp');">
                 <div class="absolute inset-0 bg-black/30"></div>
                 
-                <!-- Container para o layout principal (texto e imagem da doutora) -->
-                <div class="relative w-full h-full flex flex-col md:flex-row">
+                <!-- Container para o layout principal -->
+                <div class="relative w-full h-full flex flex-col lg:flex-row">
                     
-                    <!-- Coluna de Texto -->
-                    <div class="w-full md:w-1/2 lg:w-5/12 order-2 md:order-1 flex items-end md:items-center z-10">
-                        <div class="container mx-auto px-6 pb-20 md:pb-0 text-center md:text-left">
+                    <!-- Coluna de Texto (Ocupa a largura total no mobile, metade no desktop) -->
+                    <div class="w-full lg:w-1/2 order-2 lg:order-1 flex items-end lg:items-center z-10">
+                        <div class="container mx-auto px-6 pb-24 lg:pb-0 text-center lg:text-left">
                             <h1 class="text-4xl sm:text-5xl md:text-5xl lg:text-7xl font-semibold leading-tight text-white" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                                 <span class="text-brand-gold">Médica ginecologista em Salvador</span>
                                 <span class="block text-xl sm:text-2xl md:text-3xl font-normal tracking-wide mt-2">CRM 8694</span>
                             </h1>
-                            <p class="mt-6 text-base sm:text-lg md:text-xl max-w-xl mx-auto md:mx-0 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">
+                            <p class="mt-6 text-base sm:text-lg md:text-xl max-w-xl mx-auto lg:mx-0 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">
                                 Ginecologia moderna e humanizada, focada no seu bem-estar, saúde e autoestima • Cuidando de você em todas as fases da sua vida.
                             </p>
                             <div class="mt-10">
@@ -212,11 +212,10 @@
                         </div>
                     </div>
 
-                    <!-- Coluna da Imagem -->
-                    <div class="w-full md:w-7/12 lg:w-8/12 order-1 md:order-2 h-3/5 md:h-full relative">
+                    <!-- Coluna da Imagem (Ocupa a largura total no mobile, metade no desktop) -->
+                    <div class="w-full lg:w-1/2 order-1 lg:order-2 h-3/5 lg:h-full relative">
                         <img src="imagemdra.webp" alt="Dra. Elenice Ramos" class="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-right-bottom">
                     </div>
-
                 </div>
             </section>
 
